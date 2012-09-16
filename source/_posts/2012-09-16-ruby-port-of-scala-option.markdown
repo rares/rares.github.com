@@ -27,7 +27,7 @@ require "option"
 
 Option(User.find_by_email(params[:email])).
   filter { |u| u.check_password(params[:password]) }.
-  map { |u| u.record_login!; user }.
+  map { |u| u.record_login!; u }.
   get_or_else { User.anonymous }
 {% endcodeblock %}
 <p>
