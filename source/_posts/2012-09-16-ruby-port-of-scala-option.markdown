@@ -15,9 +15,9 @@ but found I had something that might benefit others; so I give you <a href="http
 </p>
 
 <p>
-For the un-doctrinated, Option is a container type that allows one to deal with a boxed value in
-certain terms (IE, does the value exist or is it empty?).
-It is a extremely flexible way to take input and manipulate it to produce a value.
+For the un-indoctrinated, Option is a container type that allows one to deal with a boxed value in
+certain terms (i.e., does the value exist or is it empty?).
+It is an extremely flexible way to take input and manipulate it to produce a value.
 For example, for any type of value with common interface, I can easily chain together calls
 that check for presence of the value, transform it and then default the value if no value is present.
 </p>
