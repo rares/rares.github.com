@@ -27,7 +27,7 @@ require "option"
 
 Option(User.find_by_email(params[:email])).
   filter { |u| u.check_password(params[:password]) }.
-  map { |u| u.record_login!; u }.
+  inside { |u| u.record_login! }.
   get_or_else { User.anonymous }
 {% endcodeblock %}
 <p>
@@ -41,8 +41,8 @@ The above will:
   If the password check is true, then the Option returns 'Some(user)' again. If not, it returns 'None'.
   </li>
   <li>
-    <strong>map:</strong> if the password check was correct, then record that the user logged in
-    successfully using the 'Some(user)'. We then return the user Reference to be automatically wrapped in an 'Option', otherwise, the option just returns 'None'.
+    <strong>inside:</strong> if the password check was correct, then record that the user logged in
+    successfully using the 'Some(user)'. 'inside' then just returns the reference to the 'Some(user)'.
   </li>
   <li><strong>get_or_else:</strong> if any of the calls in the chain returned 'None' then when we
   reach the get_or_else call, the Option invokes the behavior in the block, in which we define as returning an anonymous User. If the Option
