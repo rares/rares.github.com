@@ -12,5 +12,5 @@ footer: true
 
 <div>
   <h2>Public gem signing certificate:</h2>
-  <a href="/assets/gem-public_cert.pem">Download</a>
+  <a href="/assets/gem-public_cert.pem" rel="nofollow">Download</a>
 </div>
