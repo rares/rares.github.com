@@ -5,12 +5,19 @@ comments: false
 sharing: false
 footer: true
 ---
-<div>
-  <h2>Github:</h2>
-  <a href="http://www.github.com/rares">rares</a>
-</div>
+<dl class="list">
+  <dt>Github</dt>
+  <dd>
+    <a href="http://www.github.com/rares">rares</a>
+  </dd>
 
-<div>
-  <h2>Public gem signing certificate:</h2>
-  <a href="/assets/gem-public_cert.pem" rel="nofollow">Download</a>
-</div>
+  <dt>Public RubyGems Signing Certificate</dt>
+  <dd>
+    <a href="/assets/gem-public_cert.pem" rel="nofollow">Download</a>
+  </dd>
+
+  <dt>Public PGP Key</dt>
+  <dd>
+    <a href="/assets/rares_pgp_key.asc" rel="nofollow">Download</a>
+  </dd>
+</dl>
