@@ -6,6 +6,7 @@ group :development do
   gem 'rake'
   gem 'rack'
   gem 'jekyll'
+  gem 'octopress-codeblock'
   gem 'rdiscount'
   gem 'pygments.rb'
   gem 'RedCloth'
