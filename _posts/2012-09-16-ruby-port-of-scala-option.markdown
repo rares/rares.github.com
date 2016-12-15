@@ -2,7 +2,7 @@
 layout: post
 title: "Ruby port of Scala's Option monad"
 date: 2012-09-16
-comments: false
+comments: true
 sharing: true
 ---
 <p>
