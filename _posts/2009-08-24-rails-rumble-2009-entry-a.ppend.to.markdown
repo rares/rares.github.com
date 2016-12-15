@@ -1,8 +1,9 @@
 ---
 layout: post
-comments: true
 date: 2009-08-24
 categories: railsrumble ruby
+comments: true
+sharing: true
 ---
 <p>
  Over the weekend, I had the privilege of competing with <a href="http://r09.railsrumble.com/teams/scatapult" target="_blank">Scatapult</a> in this year's Rails Rumble. I had an absolute blast working with <a href="http://twitter.com/reagent">Pat</a>, <a href="http://twitter.com/tpitale">Tony</a> and <a href="http://twitter.com/averyvery">Doug</a> this time around and

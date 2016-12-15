@@ -1,6 +1,7 @@
 ---
 layout: post
 comments: true
+sharing: true
 date: 2010-09-26
 categories: ruby eventmachine
 ---
