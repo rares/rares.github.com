@@ -1,0 +1,21 @@
+<div class="highlight"><pre><span class="o">&lt;</span><span class="sr">/p&gt;</span>
+
+<span class="sr">&lt;p&gt;require &quot;uri&quot;</span>
+<span class="sr">require &quot;yajl/</span><span class="n">http_stream</span><span class="s2">&quot;&lt;/p&gt;</span>
+
+<span class="s2">&lt;p&gt;u = &quot;</span><span class="n">twitter</span> <span class="n">username</span> <span class="n">here</span><span class="s2">&quot;</span>
+<span class="s2">p = &quot;</span><span class="n">twitter</span> <span class="n">password</span> <span class="n">here</span><span class="s2">&quot;&lt;/p&gt;</span>
+
+<span class="s2">&lt;p&gt;url = URI.parse(&quot;</span><span class="n">http</span><span class="ss">:/</span><span class="o">/</span><span class="c1">#{u}:#{p}@stream.twitter.com/spritzer.json&quot;)</span>
+<span class="no">Yajl</span><span class="o">::</span><span class="no">HttpStream</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="ss">:symbolize_keys</span> <span class="o">=&gt;</span> <span class="kp">true</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">status</span><span class="o">|</span>
+  <span class="k">unless</span> <span class="n">status</span><span class="o">.</span><span class="n">has_key?</span><span class="p">(</span><span class="ss">:delete</span><span class="p">)</span><span class="o">&lt;</span><span class="sr">/p&gt;</span>
+
+<span class="sr">&lt;pre&gt;&lt;code&gt;puts &quot;screen_name: </span><span class="si">#{</span><span class="n">status</span><span class="o">[</span><span class="ss">:user</span><span class="o">][</span><span class="ss">:screen_name</span><span class="o">]</span><span class="si">}</span><span class="sr">&quot;</span>
+<span class="sr">puts &quot;message: </span><span class="si">#{</span><span class="n">status</span><span class="o">[</span><span class="ss">:text</span><span class="o">]</span><span class="si">}</span><span class="sr">&quot;</span>
+<span class="sr">puts</span>
+<span class="sr">&lt;/</span><span class="n">code</span><span class="o">&gt;&lt;</span><span class="sr">/pre&gt;</span>
+
+<span class="sr">&lt;p&gt;  end</span>
+<span class="sr">end</span>
+</pre>
+</div>

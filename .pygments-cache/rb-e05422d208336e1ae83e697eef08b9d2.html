@@ -1,0 +1,27 @@
+<div class="highlight"><pre><span class="nb">require</span> <span class="s2">&quot;option&quot;</span>
+
+<span class="no">Option</span><span class="p">(</span><span class="no">User</span><span class="o">.</span><span class="n">find_by_email</span><span class="p">(</span><span class="n">params</span><span class="o">[</span><span class="ss">:email</span><span class="o">]</span><span class="p">))</span><span class="o">.</span>
+  <span class="n">filter</span> <span class="p">{</span> <span class="o">|</span><span class="n">u</span><span class="o">|</span> <span class="n">u</span><span class="o">.</span><span class="n">check_password</span><span class="p">(</span><span class="n">params</span><span class="o">[</span><span class="ss">:password</span><span class="o">]</span><span class="p">)</span> <span class="p">}</span><span class="o">.</span>
+  <span class="n">map</span> <span class="p">{</span> <span class="o">|</span><span class="n">u</span><span class="o">|</span> <span class="n">u</span><span class="o">.</span><span class="n">record_login!</span><span class="p">;</span> <span class="n">user</span> <span class="p">}</span><span class="o">.</span>
+  <span class="n">get_or_else</span> <span class="p">{</span> <span class="no">User</span><span class="o">.</span><span class="n">anonymous</span> <span class="p">}</span>
+<span class="sb">```</span>
+<span class="sb">&lt;p&gt;</span>
+<span class="sb">The above will:</span>
+<span class="sb">&lt;ol&gt;</span>
+<span class="sb">&lt;li&gt;</span>
+<span class="sb">Return `</span><span class="no">Some</span><span class="p">(</span><span class="n">user</span><span class="p">)</span><span class="sb">` if the user for the given email is found, otherwise return `</span><span class="no">None</span><span class="sb">`</span>
+<span class="sb">&lt;/li&gt;</span>
+<span class="sb">&lt;li&gt;</span>
+<span class="sb">&lt;strong&gt;filter:&lt;/strong&gt; Use the result of the previous call to either check the password is correct or just return the `</span><span class="no">None</span><span class="sb">`.</span>
+<span class="sb">If the password check is true, then return `</span><span class="no">Some</span><span class="p">(</span><span class="n">user</span><span class="p">)</span><span class="sb">` again, if not, return `</span><span class="no">None</span><span class="sb">`.</span>
+<span class="sb">&lt;/li&gt;</span>
+<span class="sb">&lt;li&gt;</span>
+<span class="sb">  &lt;strong&gt;map:&lt;/strong&gt; if the password check was correct, then record that the user logged in</span>
+<span class="sb">  successfully. We then return the user Reference to be automatically wrapped in an `</span><span class="no">Option</span><span class="sb">`, otherwise, just return `</span><span class="no">None</span><span class="sb">`.</span>
+<span class="sb">&lt;/li&gt;</span>
+<span class="sb">&lt;li&gt;&lt;strong&gt;get_or_else:&lt;/strong&gt; if any of the calls in the chain returned `</span><span class="no">None</span><span class="sb">` then when we</span>
+<span class="sb">reach the get_or_else call, we will invoke the behavior in the block, which will return an anonymous user. If we</span>
+<span class="sb">were holding a `</span><span class="no">Some</span><span class="p">(</span><span class="n">user</span><span class="p">)</span><span class="sb">` however we get the un-boxed `</span><span class="n">user</span><span class="sb">`.&lt;/li&gt;</span>
+<span class="sb">&lt;/li&gt;</span>
+</pre>
+</div>

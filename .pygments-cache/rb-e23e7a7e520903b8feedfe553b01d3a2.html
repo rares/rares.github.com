@@ -1,0 +1,28 @@
+<div class="highlight"><pre><span class="k">class</span> <span class="nc">DeferrableProgressMonitor</span>
+  <span class="kp">attr_reader</span> <span class="ss">:total</span>
+
+  <span class="k">def</span> <span class="nf">initialize</span>
+    <span class="vi">@marked</span><span class="p">,</span> <span class="vi">@total</span> <span class="o">=</span> <span class="o">[]</span><span class="p">,</span> <span class="mi">0</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">register</span><span class="p">(</span><span class="n">deferrable</span><span class="p">)</span>
+    <span class="vi">@total</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="vi">@marked</span> <span class="o">&lt;&lt;</span> <span class="n">deferrable</span>
+
+    <span class="n">deferrable</span><span class="o">.</span><span class="n">callback</span> <span class="p">{</span> <span class="o">|</span><span class="n">object</span><span class="o">|</span> <span class="vi">@marked</span><span class="o">.</span><span class="n">pop</span> <span class="p">}</span>
+    <span class="n">deferrable</span><span class="o">.</span><span class="n">errback</span> <span class="p">{</span> <span class="o">|</span><span class="n">e</span><span class="p">,</span> <span class="n">object</span><span class="o">|</span> <span class="vi">@marked</span><span class="o">.</span><span class="n">pop</span> <span class="p">}</span>
+
+    <span class="kp">nil</span>
+  <span class="k">end</span>
+  <span class="k">alias</span> <span class="ss">:&lt;&lt;</span> <span class="ss">:register</span>
+
+  <span class="k">def</span> <span class="nf">current</span>
+    <span class="vi">@marked</span><span class="o">.</span><span class="n">size</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">wait?</span>
+    <span class="vi">@total</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="vi">@marked</span><span class="o">.</span><span class="n">empty?</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</pre>
+</div>

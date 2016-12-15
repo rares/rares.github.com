@@ -1,0 +1,16 @@
+<div class="highlight"><pre><span class="nb">require</span> <span class="s2">&quot;uri&quot;</span>
+<span class="nb">require</span> <span class="s2">&quot;yajl/http_stream&quot;</span>
+
+<span class="n">u</span> <span class="o">=</span> <span class="s2">&quot;twitter username here&quot;</span>
+<span class="nb">p</span> <span class="o">=</span> <span class="s2">&quot;twitter password here&quot;</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="no">URI</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="s2">&quot;http://</span><span class="si">#{</span><span class="n">u</span><span class="si">}</span><span class="s2">:</span><span class="si">#{</span><span class="nb">p</span><span class="si">}</span><span class="s2">@stream.twitter.com/spritzer.json&quot;</span><span class="p">)</span>
+<span class="no">Yajl</span><span class="o">::</span><span class="no">HttpStream</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="ss">:symbolize_keys</span> <span class="o">=&gt;</span> <span class="kp">true</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">status</span><span class="o">|</span>
+  <span class="k">unless</span> <span class="n">status</span><span class="o">.</span><span class="n">has_key?</span><span class="p">(</span><span class="ss">:delete</span><span class="p">)</span>
+    <span class="nb">puts</span> <span class="s2">&quot;screen_name: </span><span class="si">#{</span><span class="n">status</span><span class="o">[</span><span class="ss">:user</span><span class="o">][</span><span class="ss">:screen_name</span><span class="o">]</span><span class="si">}</span><span class="s2">&quot;</span>
+    <span class="nb">puts</span> <span class="s2">&quot;message: </span><span class="si">#{</span><span class="n">status</span><span class="o">[</span><span class="ss">:text</span><span class="o">]</span><span class="si">}</span><span class="s2">&quot;</span>
+    <span class="nb">puts</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</pre>
+</div>

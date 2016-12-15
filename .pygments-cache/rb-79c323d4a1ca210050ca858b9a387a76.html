@@ -1,0 +1,15 @@
+<div class="highlight"><pre><span class="no">EM</span><span class="o">.</span><span class="n">run</span> <span class="k">do</span>
+  <span class="n">monitor</span> <span class="o">=</span> <span class="no">DeferrableProgressMonitor</span><span class="o">.</span><span class="n">new</span>
+  <span class="nb">trap</span><span class="p">(</span><span class="s2">&quot;TERM&quot;</span><span class="p">)</span> <span class="k">do</span><span class="o">&lt;</span><span class="sr">/p&gt;</span>
+
+<span class="sr">&lt;pre&gt;&lt;code&gt;unless monitor.wait?</span>
+<span class="sr">  EM.stop</span>
+<span class="sr">end</span>
+<span class="sr">&lt;/</span><span class="n">code</span><span class="o">&gt;&lt;</span><span class="sr">/pre&gt;</span>
+
+<span class="sr">&lt;p&gt;  end&lt;/</span><span class="nb">p</span><span class="o">&gt;</span>
+
+<span class="o">&lt;</span><span class="nb">p</span><span class="o">&gt;</span>  <span class="n">monitor</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span> <span class="n">thing_that_returns_a_deferrable</span>
+<span class="k">end</span>
+</pre>
+</div>

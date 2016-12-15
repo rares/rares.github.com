@@ -1,98 +1,78 @@
-# ----------------------- #
-#      Main Configs       #
-# ----------------------- #
+# # # # # # # # # # # # #
+#   K i k o - p l u s   #
+# # # # # # # # # # # # #
 
-url: http://rares.github.com
-title: "a blog thing."
-subtitle: "Rob Ares - Independent Software Consultant"
+# Basic
+title:              "Rob Ares"
 author: Rob Ares
-simple_search: http://google.com/search
 
-# Default date format is "ordinal" (resulting in "July 22nd 2007")
-# You can customize the format as defined in
-# http://www.ruby-doc.org/core-1.9.2/Time.html#method-i-strftime
-# Additionally, %o will give you the ordinal representation of the day
-date_format: "ordinal"
+author:
+  name:             Rob Ares
+  twitter:          rares
+  github:           rares
+  linkedin:         robares
 
-# RSS / Email (optional) subscription links (change if using something like Feedburner)
-subscribe_rss: /atom.xml
-subscribe_email:
-# RSS feeds can list your email address if you like
-email:
+# Google-analytics
+google-analytics:
+  id:               "UA-2892966-4"
 
-# ----------------------- #
-#    Jekyll & Plugins     #
-# ----------------------- #
+# Disqus
+disqus:
+  id:               "rares"
 
-# If publishing to a subdirectory as in http://site.com/project set 'root: /project'
-root: /
-permalink: /:year/:month/:day/:title/
-source: source
-destination: public
-plugins: plugins
-code_dir: downloads/code
-category_dir: blog/categories
-markdown: rdiscount
-pygments: false # default python pygments have been replaced by pygments.rb
+# URL
+url:                "https://robares.com" # the base hostname & protocol for your site
+baseurl:            "" # the subpath of your site, e.g. /blog
 
-paginate: 1          # Posts per page on the blog index
-pagination_dir: blog  # Directory base for pagination URLs eg. /blog/page/2/
-recent_posts: 2       # Posts in the sidebar Recent Posts section
-excerpt_link: "Read on &rarr;"  # "Continue reading" link text at the bottom of excerpted articles
+# http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+timezone:           "America/New York"
+permalink:          /:year/:month/:day/:title/
 
-titlecase: true       # Converts page and post titles to tilecase
+# Pagination
+paginate:           5
+paginate_path:      /page:num/
 
-# list each of the sidebar modules you want to include, in the order you want them to appear.
-# To add custom asides, create files in /source/_includes/custom/asides/ and add them to the list like 'custom/asides/custom_aside_name.html'
-default_asides: [asides/recent_posts.html, asides/github.html, asides/twitter.html, asides/pinboard.html, asides/googleplus.html]
+# Markdown
+markdown:           kramdown
+kramdown:
+  imput:            GFM
 
-# Each layout uses the default asides, but they can have their own asides instead. Simply uncomment the lines below
-# and add an array with the asides you want to use.
-# blog_index_asides:
-# post_asides:
-# page_asides:
+# Navigation
+nav:
+  - name:           "Home"
+    url:            "/"
+  - name:           "Hire"
+    url:            "/hire"
+  - name:           "Software"
+    url:            "/software"
+  - name:           "archives"
+    url:            "/archives"
 
-# ----------------------- #
-#   3rd Party Settings    #
-# ----------------------- #
 
-# Github repositories
-#github_user: rares
-#github_repo_count: 0
-#github_show_profile_link: true
-#github_skip_forks: true
 
-# Twitter
-#twitter_user: rares
-#twitter_tweet_count: 2
-#twitter_show_replies: false
-#twitter_follow_button: true
-#twitter_show_follower_count: false
-#twitter_tweet_button: false
+# Sass
+sass:
+  sass_dir:         _sass
+  style:            :compressed
 
-# Google +1
-#google_plus_one: true
-#google_plus_one_size: medium
+# Scopes
+defaults:
+  -
+    scope:
+      path:         ""
+      type:         "pages"
+    values:
+      layout:       "page"
+  -
+    scope:
+      path:         ""
+      type:         "posts"
+    values:
+      layout:       "post"
 
-# Google Plus Profile
-# Hidden: No visible button, just add author information to search results
-#googleplus_user: 104625098253333665248
-#googleplus_hidden: true
+# jekyll-seo-tag, see: http://www.rubydoc.info/gems/jekyll-seo-tag/1.2.0
+gems:
+  - jekyll-seo-tag
+  - jekyll-paginate
 
-# Pinboard
-pinboard_user:
-pinboard_count: 3
-
-# Delicious
-delicious_user:
-delicious_count: 3
-
-# Disqus Comments
-disqus_short_name: rares
-disqus_show_comment_count: false
-
-# Google Analytics
-google_analytics_tracking_id: UA-2892966-4
-
-# Facebook Like
-facebook_like: false
+exclude:            [vendor]

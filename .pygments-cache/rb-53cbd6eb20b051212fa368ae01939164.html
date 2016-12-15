@@ -1,0 +1,8 @@
+<div class="highlight"><pre><span class="nb">require</span> <span class="s2">&quot;option&quot;</span>
+
+<span class="no">Option</span><span class="p">(</span><span class="no">User</span><span class="o">.</span><span class="n">find_by_email</span><span class="p">(</span><span class="n">params</span><span class="o">[</span><span class="ss">:email</span><span class="o">]</span><span class="p">))</span><span class="o">.</span>
+  <span class="n">filter</span> <span class="p">{</span> <span class="o">|</span><span class="n">u</span><span class="o">|</span> <span class="n">u</span><span class="o">.</span><span class="n">check_password</span><span class="p">(</span><span class="n">params</span><span class="o">[</span><span class="ss">:password</span><span class="o">]</span><span class="p">)</span> <span class="p">}</span><span class="o">.</span>
+  <span class="n">inside</span> <span class="p">{</span> <span class="o">|</span><span class="n">u</span><span class="o">|</span> <span class="n">u</span><span class="o">.</span><span class="n">record_login!</span> <span class="p">}</span><span class="o">.</span>
+  <span class="n">get_or_else</span> <span class="p">{</span> <span class="no">User</span><span class="o">.</span><span class="n">anonymous</span> <span class="p">}</span>
+</pre>
+</div>

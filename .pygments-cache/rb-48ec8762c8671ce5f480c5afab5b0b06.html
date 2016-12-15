@@ -1,0 +1,8 @@
+<div class="highlight"><pre><span class="nb">require</span> <span class="s2">&quot;option&quot;</span><span class="o">&lt;</span><span class="sr">/p&gt;</span>
+
+<span class="sr">&lt;p&gt;Option(User.find_by_email(params[:email])).</span>
+<span class="sr">  filter { |u| u.check_password(params[:password]) }.</span>
+<span class="sr">  map { |u| u.record_login!; u }.</span>
+<span class="sr">  get_or_else { User.anonymous }</span>
+</pre>
+</div>

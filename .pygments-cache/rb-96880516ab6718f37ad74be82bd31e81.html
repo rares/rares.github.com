@@ -1,0 +1,28 @@
+<div class="highlight"><pre><span class="nb">require</span> <span class="s2">&quot;option&quot;</span><span class="o">&lt;</span><span class="sr">/p&gt;</span>
+
+<span class="sr">&lt;p&gt;Option(User.find_by_email(params[:email])).</span>
+<span class="sr">  filter { |u| u.check_password(params[:password]) }.</span>
+<span class="sr">  map { |u| u.record_login!; user }.</span>
+<span class="sr">  get_or_else { User.anonymous }</span>
+<span class="sr">```&lt;/</span><span class="nb">p</span><span class="o">&gt;</span>
+
+<span class="o">&lt;</span><span class="nb">p</span><span class="o">&gt;</span>
+<span class="no">The</span> <span class="n">above</span> <span class="n">will</span><span class="p">:</span>
+<span class="o">&lt;</span><span class="n">ol</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">li</span><span class="o">&gt;</span>
+<span class="no">Return</span> <span class="sb">`Some(user)`</span> <span class="k">if</span> <span class="n">the</span> <span class="n">user</span> <span class="k">for</span> <span class="n">the</span> <span class="n">given</span> <span class="n">email</span> <span class="n">is</span> <span class="n">found</span><span class="p">,</span> <span class="n">otherwise</span> <span class="k">return</span> <span class="sb">`None`</span>
+<span class="o">&lt;</span><span class="sr">/li&gt;</span>
+<span class="sr">&lt;li&gt;</span>
+<span class="sr">&lt;strong&gt;filter:&lt;/s</span><span class="n">trong</span><span class="o">&gt;</span> <span class="no">Use</span> <span class="n">the</span> <span class="n">result</span> <span class="n">of</span> <span class="n">the</span> <span class="n">previous</span> <span class="n">call</span> <span class="n">to</span> <span class="n">either</span> <span class="n">check</span> <span class="n">the</span> <span class="n">password</span> <span class="n">is</span> <span class="n">correct</span> <span class="ow">or</span> <span class="n">just</span> <span class="k">return</span> <span class="n">the</span> <span class="sb">`None`</span><span class="o">.</span>
+<span class="no">If</span> <span class="n">the</span> <span class="n">password</span> <span class="n">check</span> <span class="n">is</span> <span class="kp">true</span><span class="p">,</span> <span class="k">then</span> <span class="k">return</span> <span class="sb">`Some(user)`</span> <span class="n">again</span><span class="p">,</span> <span class="k">if</span> <span class="ow">not</span><span class="p">,</span> <span class="k">return</span> <span class="sb">`None`</span><span class="o">.</span>
+<span class="o">&lt;</span><span class="sr">/li&gt;</span>
+<span class="sr">&lt;li&gt;</span>
+<span class="sr">  &lt;strong&gt;map:&lt;/s</span><span class="n">trong</span><span class="o">&gt;</span> <span class="k">if</span> <span class="n">the</span> <span class="n">password</span> <span class="n">check</span> <span class="n">was</span> <span class="n">correct</span><span class="p">,</span> <span class="k">then</span> <span class="n">record</span> <span class="n">that</span> <span class="n">the</span> <span class="n">user</span> <span class="n">logged</span> <span class="k">in</span>
+  <span class="n">successfully</span><span class="o">.</span> <span class="no">We</span> <span class="k">then</span> <span class="k">return</span> <span class="n">the</span> <span class="n">user</span> <span class="no">Reference</span> <span class="n">to</span> <span class="n">be</span> <span class="n">automatically</span> <span class="n">wrapped</span> <span class="k">in</span> <span class="n">an</span> <span class="sb">`Option`</span><span class="p">,</span> <span class="n">otherwise</span><span class="p">,</span> <span class="n">just</span> <span class="k">return</span> <span class="sb">`None`</span><span class="o">.</span>
+<span class="o">&lt;</span><span class="sr">/li&gt;</span>
+<span class="sr">&lt;li&gt;&lt;strong&gt;get_or_else:&lt;/s</span><span class="n">trong</span><span class="o">&gt;</span> <span class="k">if</span> <span class="n">any</span> <span class="n">of</span> <span class="n">the</span> <span class="n">calls</span> <span class="k">in</span> <span class="n">the</span> <span class="n">chain</span> <span class="n">returned</span> <span class="sb">`None`</span> <span class="k">then</span> <span class="k">when</span> <span class="n">we</span>
+<span class="n">reach</span> <span class="n">the</span> <span class="n">get_or_else</span> <span class="n">call</span><span class="p">,</span> <span class="n">we</span> <span class="n">will</span> <span class="n">invoke</span> <span class="n">the</span> <span class="n">behavior</span> <span class="k">in</span> <span class="n">the</span> <span class="n">block</span><span class="p">,</span> <span class="n">which</span> <span class="n">will</span> <span class="k">return</span> <span class="n">an</span> <span class="n">anonymous</span> <span class="n">user</span><span class="o">.</span> <span class="no">If</span> <span class="n">we</span>
+<span class="n">were</span> <span class="n">holding</span> <span class="n">a</span> <span class="sb">`Some(user)`</span> <span class="n">however</span> <span class="n">we</span> <span class="n">get</span> <span class="n">the</span> <span class="n">un</span><span class="o">-</span><span class="n">boxed</span> <span class="sb">`user`</span><span class="o">.</span><span class="n">&lt;</span><span class="sr">/li&gt;</span>
+<span class="sr">&lt;/</span><span class="n">li</span><span class="o">&gt;</span>
+</pre>
+</div>
