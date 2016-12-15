@@ -1,20 +1,10 @@
 source "http://rubygems.org"
 
 group :development do
-  gem "ffi"
-  gem "iconv"
-  gem 'rake'
-  gem 'rack'
+
   gem 'jekyll'
-  gem 'octopress-codeblock'
-  gem 'rdiscount'
-  gem 'pygments.rb'
-  gem 'RedCloth'
-  gem 'haml', '>= 3.1'
-  gem 'compass', '>= 0.11'
-  gem 'rubypants'
-  gem 'stringex'
-  gem 'liquid', '2.2.2'
+  gem "jekyll-seo-tag"
+  gem "jekyll-paginate"
 end
 
 gem 'sinatra', '1.2.6'
