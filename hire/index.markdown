@@ -15,7 +15,7 @@ sharing: false
 <h2>Contact</h2>
 <p>
   For estimates and inquiries, please get in touch with me at
-  <a href="mailto:rob.ares+hire@gmail.com">rob.ares@gmail.com</a> or <strong>@rares</strong>.
+  <a href="mailto:rob@hireredrectangle.com">rob@hireredrectangle.com</a>.
   I look forward to hearing from you!
 </p>
 
