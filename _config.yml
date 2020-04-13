@@ -15,9 +15,9 @@ author:
 google-analytics:
   id:               "UA-2892966-4"
 
-# Disqus
-disqus:
-  id:               "rares"
+# # Disqus
+# disqus:
+#   id:               "rares"
 
 # URL
 url:                "https://robares.com" # the base hostname & protocol for your site
