@@ -3,13 +3,11 @@
 # # # # # # # # # # # # #
 
 # Basic
-title:              "Rob Ares"
-author: Rob Ares
+title:              "site"
+author:
 
 author:
-  name:             Rob Ares
-  github:           rares
-  linkedin:         robares
+  name:             -
 
 # Google-analytics
 google-analytics:
@@ -40,14 +38,6 @@ kramdown:
 nav:
   - name:           "Home"
     url:            "/"
-  - name:           "Hire"
-    url:            "/hire"
-  - name:           "Software"
-    url:            "/software"
-  - name:           "archives"
-    url:            "/archives"
-
-
 
 # Sass
 sass:
