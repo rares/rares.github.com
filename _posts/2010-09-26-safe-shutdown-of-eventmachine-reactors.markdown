@@ -1,7 +1,7 @@
 ---
 layout: post
-comments: true
-sharing: true
+comments: false
+sharing: false
 date: 2010-09-26
 categories: ruby eventmachine
 ---

@@ -1,7 +1,8 @@
 ---
 layout: post
 date: 2009-07-14
-comments: true
+comments: false
+sharing: false
 ---
 <p>
   I have been researching the <a href="http://apiwiki.twitter.com/Streaming-API-Documentation" target="_blank" rel="nofollow">Twitter Streaming API</a> recently for a side project (secret) and was playing around with it in Ruby to get a feel for how it works. I started out using an <a href="http://github.com/igrigorik/em-http-request/tree/master" target="_blank" rel="nofollow">asynchronous http client</a> to take advantage of the API but wound up having some issues with how it was chunking json as a response type (.xml was fine).
