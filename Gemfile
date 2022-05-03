@@ -7,4 +7,4 @@ group :development do
   gem "jekyll-paginate"
 end
 
-gem 'sinatra', '1.2.6'
+gem 'sinatra', '2.2.0'
